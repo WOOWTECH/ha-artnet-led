@@ -1,0 +1,182 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connection Setup",
+        "description": "Configure your Art-Net/DMX gateway connection.",
+        "data": {
+          "host": "Gateway IP Address",
+          "port": "Port (leave empty for default)",
+          "node_type": "Protocol",
+          "max_fps": "Frame Rate (FPS)",
+          "refresh_every": "Refresh Interval (seconds)",
+          "host_override": "Host Override (optional)",
+          "port_override": "Port Override (optional)"
+        },
+        "data_description": {
+          "host": "IPv4 address of your Art-Net gateway (e.g., 192.168.1.100)",
+          "port": "Leave empty to use protocol default port",
+          "max_fps": "Maximum frames per second (1-50)",
+          "refresh_every": "Seconds between full refreshes (0-9999)"
+        }
+      },
+      "universe": {
+        "title": "Add Universe",
+        "description": "Configure DMX universes. Universes added: {universes_added}",
+        "data": {
+          "universe_number": "Universe Number",
+          "output_correction": "Output Correction",
+          "send_partial_universe": "Send Partial Universe",
+          "action": "Action"
+        },
+        "data_description": {
+          "universe_number": "DMX universe number (0-1024)",
+          "send_partial_universe": "Send only channels in use to reduce bandwidth"
+        }
+      },
+      "fixture": {
+        "title": "Add Fixture",
+        "description": "Configure light fixtures. Fixtures added: {fixtures_added}",
+        "data": {
+          "universe": "Universe",
+          "name": "Fixture Name",
+          "type": "Type",
+          "channel": "DMX Channel",
+          "transition": "Transition (seconds)",
+          "output_correction": "Output Correction",
+          "channel_size": "Channel Size",
+          "byte_order": "Byte Order",
+          "action": "Action"
+        },
+        "data_description": {
+          "channel": "Starting DMX channel (1-512)",
+          "transition": "Default transition time in seconds (0-999)"
+        }
+      },
+      "fixture_details": {
+        "title": "Fixture Details: {fixture_type}",
+        "description": "Configure advanced settings for {fixture_name}. Channel codes: d=dimmer, r/R=red, g/G=green, b/B=blue, c/C=cool white, h/H=warm white, w/W=auto white, t/T=temperature, x/y=XY coords. Lowercase=scaled by brightness.",
+        "data": {
+          "min_temp": "Minimum Temperature",
+          "max_temp": "Maximum Temperature",
+          "channel_count": "Number of Channels",
+          "channel_setup": "Channel Order"
+        },
+        "data_description": {
+          "min_temp": "Warmest color temperature (e.g., 2700K)",
+          "max_temp": "Coolest color temperature (e.g., 6500K)",
+          "channel_count": "Number of DMX channels for this fixture (1-16)",
+          "channel_setup": "Channel order (e.g., rgb, bgr, rgbw, drgb). Change if your fixture has different wiring order."
+        }
+      },
+      "review": {
+        "title": "Review Configuration",
+        "description": "Review your settings before saving.\n\n{summary}",
+        "data": {
+          "action": "Action"
+        }
+      }
+    },
+    "error": {
+      "invalid_host": "Please enter a valid IPv4 address",
+      "invalid_port": "Port must be between 1 and 65535",
+      "invalid_fps": "FPS must be between 1 and 50",
+      "invalid_refresh": "Refresh interval must be between 0 and 9999",
+      "invalid_channel": "Channel must be between 1 and 512",
+      "invalid_universe": "Universe must be between 0 and 1024",
+      "duplicate_universe": "This universe number already exists",
+      "invalid_temp_format": "Temperature format: e.g., 2700K",
+      "temp_required": "Temperature is required for this fixture type",
+      "invalid_channel_count": "Channel count must be between 1 and 16",
+      "no_fixtures": "Please add at least one fixture",
+      "connection_failed": "Cannot connect to gateway",
+      "name_required": "Fixture name is required"
+    },
+    "abort": {
+      "already_configured": "This gateway is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Art-Net LED Options",
+        "description": "Select what you want to edit.",
+        "data": {
+          "action": "What would you like to edit?"
+        }
+      },
+      "connection": {
+        "title": "Edit Connection",
+        "description": "Modify your gateway connection settings.",
+        "data": {
+          "host": "Gateway IP Address",
+          "port": "Port",
+          "node_type": "Protocol",
+          "max_fps": "Frame Rate (FPS)",
+          "refresh_every": "Refresh Interval (seconds)"
+        }
+      },
+      "universe": {
+        "title": "Manage Universes",
+        "description": "You have {universe_count} universe(s) configured. Select an action below.",
+        "data": {
+          "action": "Select Action"
+        }
+      },
+      "universe_edit": {
+        "title": "Edit Universe",
+        "description": "Configure universe settings.",
+        "data": {
+          "universe_number": "Universe Number",
+          "output_correction": "Output Correction",
+          "send_partial_universe": "Send Partial Universe"
+        },
+        "data_description": {
+          "universe_number": "DMX universe number (0-1024)",
+          "send_partial_universe": "Send only channels in use to reduce bandwidth"
+        }
+      },
+      "fixture": {
+        "title": "Manage Fixtures",
+        "description": "You have {fixture_count} fixture(s) configured. Select an action below.",
+        "data": {
+          "action": "Select Action"
+        }
+      },
+      "fixture_add": {
+        "title": "Add Fixture",
+        "description": "Add a new light fixture.",
+        "data": {
+          "universe": "Universe",
+          "name": "Fixture Name",
+          "type": "Type",
+          "channel": "DMX Channel",
+          "transition": "Transition (seconds)"
+        },
+        "data_description": {
+          "channel": "Starting DMX channel (1-512)",
+          "transition": "Default transition time in seconds (0-999)"
+        }
+      },
+      "fixture_edit": {
+        "title": "Edit Fixture: {fixture_name}",
+        "description": "Modify fixture settings.",
+        "data": {
+          "universe": "Universe",
+          "name": "Fixture Name",
+          "type": "Type",
+          "channel": "DMX Channel",
+          "transition": "Transition (seconds)"
+        },
+        "data_description": {
+          "channel": "Starting DMX channel (1-512)",
+          "transition": "Default transition time in seconds (0-999)"
+        }
+      }
+    },
+    "error": {
+      "invalid_host": "Please enter a valid IPv4 address",
+      "name_required": "Fixture name is required"
+    }
+  }
+}

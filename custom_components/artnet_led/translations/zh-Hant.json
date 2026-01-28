@@ -1,0 +1,111 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "連線設定",
+        "description": "設定您的 Art-Net/DMX 閘道器連線。",
+        "data": {
+          "host": "閘道器 IP 位址",
+          "port": "連接埠（留空使用預設值）",
+          "node_type": "通訊協定",
+          "max_fps": "畫面更新率 (FPS)",
+          "refresh_every": "重新整理間隔（秒）",
+          "host_override": "覆寫主機位址（選填）",
+          "port_override": "覆寫連接埠（選填）"
+        },
+        "data_description": {
+          "host": "Art-Net 閘道器的 IPv4 位址（例如：192.168.1.100）",
+          "port": "留空以使用協定預設連接埠",
+          "max_fps": "每秒最大幀數（1-50）",
+          "refresh_every": "完整重新整理的間隔秒數（0-9999）"
+        }
+      },
+      "universe": {
+        "title": "新增 Universe",
+        "description": "設定 DMX Universe。已新增的 Universe：{universes_added}",
+        "data": {
+          "universe_number": "Universe 編號",
+          "output_correction": "輸出校正",
+          "send_partial_universe": "傳送部分 Universe",
+          "action": "動作"
+        },
+        "data_description": {
+          "universe_number": "DMX Universe 編號（0-1024）",
+          "send_partial_universe": "僅傳送使用中的通道以減少頻寬"
+        }
+      },
+      "fixture": {
+        "title": "新增燈具",
+        "description": "設定燈具。已新增的燈具：{fixtures_added}",
+        "data": {
+          "universe": "Universe",
+          "name": "燈具名稱",
+          "type": "類型",
+          "channel": "DMX 通道",
+          "transition": "過渡時間（秒）",
+          "output_correction": "輸出校正",
+          "channel_size": "通道大小",
+          "byte_order": "位元組順序",
+          "channel_setup": "通道設定",
+          "channel_count": "通道數量",
+          "min_temp": "最低色溫",
+          "max_temp": "最高色溫",
+          "action": "動作"
+        },
+        "data_description": {
+          "channel": "起始 DMX 通道（1-512）",
+          "transition": "預設過渡時間，以秒為單位（0-999）",
+          "channel_setup": "通道順序字串（例如：rgb、rgbw、drgb）",
+          "channel_count": "Fixed 類型：通道數量（1-16）",
+          "min_temp": "色溫格式：例如 2700K",
+          "max_temp": "色溫格式：例如 6500K"
+        }
+      },
+      "review": {
+        "title": "檢視設定",
+        "description": "儲存前請檢視您的設定。\n\n{summary}",
+        "data": {
+          "action": "動作"
+        }
+      }
+    },
+    "error": {
+      "invalid_host": "請輸入有效的 IPv4 位址",
+      "invalid_port": "連接埠必須介於 1 至 65535 之間",
+      "invalid_fps": "FPS 必須介於 1 至 50 之間",
+      "invalid_refresh": "重新整理間隔必須介於 0 至 9999 之間",
+      "invalid_channel": "通道必須介於 1 至 512 之間",
+      "invalid_universe": "Universe 必須介於 0 至 1024 之間",
+      "duplicate_universe": "此 Universe 編號已存在",
+      "invalid_temp_format": "色溫格式：例如 2700K",
+      "no_fixtures": "請至少新增一個燈具",
+      "connection_failed": "無法連線至閘道器",
+      "name_required": "燈具名稱為必填"
+    },
+    "abort": {
+      "already_configured": "此閘道器已設定"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Art-Net LED 選項",
+        "description": "選擇您要編輯的項目。",
+        "data": {
+          "action": "您想要編輯什麼？"
+        }
+      },
+      "connection": {
+        "title": "編輯連線",
+        "description": "修改您的閘道器連線設定。",
+        "data": {
+          "host": "閘道器 IP 位址",
+          "port": "連接埠",
+          "node_type": "通訊協定",
+          "max_fps": "畫面更新率 (FPS)",
+          "refresh_every": "重新整理間隔（秒）"
+        }
+      }
+    }
+  }
+}
