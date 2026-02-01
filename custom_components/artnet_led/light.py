@@ -102,7 +102,7 @@ CONF_DEVICE_MIN_TEMP = "min_temp"
 CONF_DEVICE_MAX_TEMP = "max_temp"
 CONF_CHANNEL_SETUP = "channel_setup"
 
-DOMAIN = "dmx"
+# DOMAIN is imported from const.py (line 44)
 
 AVAILABLE_CORRECTIONS = {"linear": pyartnet.output_correction.linear, "quadratic": pyartnet.output_correction.quadratic,
                          "cubic": pyartnet.output_correction.cubic, "quadruple": pyartnet.output_correction.quadruple}
