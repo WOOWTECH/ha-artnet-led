@@ -765,7 +765,8 @@ class ArtNetLedOptionsFlow(config_entries.OptionsFlow):
             action = user_input.get("action", "back")
 
             if action == "back":
-                return await self.async_step_init()
+                # Save all changes when returning to menu
+                return await self._save_options()
 
             elif action == "add":
                 return await self.async_step_universe_edit()
@@ -857,7 +858,8 @@ class ArtNetLedOptionsFlow(config_entries.OptionsFlow):
             action = user_input.get("action", "back")
 
             if action == "back":
-                return await self.async_step_init()
+                # Save all changes when returning to menu
+                return await self._save_options()
 
             elif action == "add":
                 return await self.async_step_fixture_add()
@@ -990,6 +992,7 @@ class ArtNetLedOptionsFlow(config_entries.OptionsFlow):
 
     async def _save_options(self) -> FlowResult:
         """Save options and update config entry."""
+        _LOGGER.info("_save_options: Starting save, fixtures=%s, universes=%s", self._fixtures, self._universes)
         # Rebuild config data
         # Clear devices from universes first
         for universe_data in self._universes.values():
@@ -1028,9 +1031,11 @@ class ArtNetLedOptionsFlow(config_entries.OptionsFlow):
             new_data[CONF_PORT_OVERRIDE] = self._connection_data[CONF_PORT_OVERRIDE]
 
         # Update config entry
+        _LOGGER.info("_save_options: About to update entry with new_data=%s", new_data)
         self.hass.config_entries.async_update_entry(
             self.config_entry,
             data=new_data,
         )
+        _LOGGER.info("_save_options: Entry updated successfully, returning async_create_entry")
 
         return self.async_create_entry(title="", data={})

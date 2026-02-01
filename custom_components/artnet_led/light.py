@@ -383,6 +383,7 @@ async def async_setup_entry(
                 "name": name,
                 "unique_id": unique_id,
                 CONF_DEVICE_CHANNEL: channel,
+                CONF_DEVICE_TYPE: device_type,
                 CONF_DEVICE_TRANSITION: device.get(CONF_TRANSITION_CONST, DEFAULT_TRANSITION),
                 CONF_CHANNEL_SIZE: device.get(CONF_CHANNEL_SIZE_CONST, DEFAULT_CHANNEL_SIZE),
                 CONF_BYTE_ORDER: byte_order,
